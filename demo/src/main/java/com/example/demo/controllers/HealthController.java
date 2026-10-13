@@ -3,7 +3,8 @@ package com.example.demo.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.example.demo.model.response.InfoResponse;
+import com.example.demo.model.response.PingResponse;
 
 import java.time.LocalDateTime;
 
@@ -20,18 +21,6 @@ public class HealthController {
 
     @Value("1.0.0")
     private String appVersion;
-
-    // --- Records ---
-
-    public record PingResponse(
-            String status,
-            @JsonProperty("server_time") LocalDateTime serverTime
-    ) {}
-
-    public record InfoResponse(
-            String name,
-            String version
-    ) {}
 
     // --- Routes ---
 
